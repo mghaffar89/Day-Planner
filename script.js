@@ -8,7 +8,7 @@ var currentTime = moment();
 currentTime = currentTime.startOf("hour");
 
 //Compare Current time to hour slots
-
+// Attempt 1
 var timeBlock = document.getElementsByClassName("time-block");
 
 /* function compareTime() {
@@ -21,6 +21,28 @@ var timeBlock = document.getElementsByClassName("time-block");
   }
 } */
 
+//Attempt 2
+function compareTime() {
+var currentTime = moment().hours();
+$(".data-hour").each(function () {
+var hourEl = $(this).attr(data-hour);
+    var hourDay = hourEl.substring(5, hourEl.length);
+    var intHourDay = parseInt(hourDay); 
+    var intCurrentHours = parseInt(currentHours);
+if (parseInt(intHourDay)) < parseInt(intCurrentHours)) {
+      $(this).addclass("past");
+      $(this).removeclass("future");
+      $(this).removeclass("present");
+    } // end of int
+    }) //.each function end 
+}; 
+
+
+
+
+
+
+
 //Local Storage & Save feature
 var x = [9, 10, 11, 12, 1, 2, 3, 4, 5];
 for (var i = 0; i < x.length; i++) {
@@ -30,7 +52,6 @@ for (var i = 0; i < x.length; i++) {
 $(".saveBtn").click(function () {
   event.preventDefault();
   var formValue = $(this).siblings(".form-control").val();
-  console.log("This worked");
   var listItem = $(this).parent().data("hour");
 
   localStorage.setItem(listItem, formValue);
