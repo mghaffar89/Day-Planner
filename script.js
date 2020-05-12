@@ -1,12 +1,25 @@
 //var d = new Date();
+//document.getElementById("currentDay").innerHTML = d; - this shows a weird format, use as last resort
 //var currentTime = moment().hours();
-//document.getElementById("currentDay").innerHTML = d;
 //using moment method
 moment(Date);
 $("#currentDay").text(moment().format("dddd MMMM Do YYYY, h:mm a"));
-// Moment Current time
 var currentTime = moment();
 currentTime = currentTime.startOf("hour");
+
+//Compare Current time to hour slots
+
+var timeBlock = document.getElementsByClassName("time-block");
+
+/* function compareTime() {
+  if (currentTime === attr("data-hour")) {
+    $(data("hour").addclass(".present"));
+  } else if (currentTime < attr("data-hour")) {
+    $(data("hour").addclass(".future")); 
+  } else (currentTime > attr("data-hour")) {
+    $(data("hour").addclass(".past"));
+  }
+} */
 
 //Local Storage & Save feature
 var x = [9, 10, 11, 12, 1, 2, 3, 4, 5];
