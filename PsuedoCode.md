@@ -19,6 +19,10 @@ choose a common id from the time slots to use in the function
 
 need to change html elements into variables to use in JS/JQ
 
+\*\*\*parseInt method to create string and integers
+
+I DONT KNOW WHATS WRONG
+
 Completed:
 
 1. Time blocks from bootstrap for hours 9-5

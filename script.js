@@ -8,40 +8,44 @@ var currentTime = moment();
 currentTime = currentTime.startOf("hour");
 
 //Compare Current time to hour slots
-// Attempt 1
-var timeBlock = document.getElementsByClassName("time-block");
 
-/* function compareTime() {
+/* Attempt 1
+var timeBlock = document.getElementsByClassName("time-block");
+function compareTime() {
   if (currentTime === attr("data-hour")) {
-    $(data("hour").addclass(".present"));
+    $(.data("hour").addclass(".present"));
   } else if (currentTime < attr("data-hour")) {
-    $(data("hour").addclass(".future")); 
+    $(.data("hour").addclass(".future")); 
   } else (currentTime > attr("data-hour")) {
-    $(data("hour").addclass(".past"));
+    $(.data("hour").addclass(".past"));
   }
 } */
 
 //Attempt 2
 function compareTime() {
-var currentTime = moment().hours();
-$(".data-hour").each(function () {
-var hourEl = $(this).attr(data-hour);
+  var currentHours = moment().hours();
+
+  $(".data-hour").each(function () {
+    var hourEl = $(this).attr("data-hour");
     var hourDay = hourEl.substring(5, hourEl.length);
-    var intHourDay = parseInt(hourDay); 
+    var intHourDay = parseInt(hourDay);
     var intCurrentHours = parseInt(currentHours);
-if (parseInt(intHourDay)) < parseInt(intCurrentHours)) {
-      $(this).addclass("past");
-      $(this).removeclass("future");
-      $(this).removeclass("present");
-    } // end of int
-    }) //.each function end 
-}; 
-
-
-
-
-
-
+    if (parseInt(intHourDay) < parseInt(intCurrentHours)) {
+      $(this).addClass("past");
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+    } else if (parseInt(intHourDay) > parseInt(intCurrentHours)) {
+      $(this).addClass("future");
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+    } else if (parseInt(intHourDay) === parseInt(intCurrentHours)) {
+      $(this).addClass("present");
+      $(this).removeClass("future");
+      $(this).removeClass("past");
+    }
+  });
+}
+compareTime();
 
 //Local Storage & Save feature
 var x = [9, 10, 11, 12, 1, 2, 3, 4, 5];
